@@ -1,8 +1,20 @@
-var user = require('./user/index');
+var db = require('db');
+var log = require('logger')(module);
+var User = require('./user/index');
 
-var dima = new user.User("Dima");
-var kate = new user.User("Kate");
 
-dima.hello(kate);
+function run() {
+    var dima = new User("Dima");
+    var kate = new User("Kate");
+
+    dima.hello(kate);
+    log(db.getPhrase("Run successful"));
+}
+// console.log(module.parent);
+if(module.parent) {
+    exports.run = run;
+}else {
+    run();
+}
 
  

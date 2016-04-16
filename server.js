@@ -1,12 +1,8 @@
-function User(name){
-    this.name = name;
-}
-User.prototype.hello = function(who) {
-    console.log("Hello, "+ who.name + '!');
-};
+var user = require('./user/index');
 
-
-var dima = new User("Dima");
-var kate = new User("Kate");
+var dima = new user.User("Dima");
+var kate = new user.User("Kate");
 
 dima.hello(kate);
+
+ 
